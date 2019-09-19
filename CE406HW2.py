@@ -91,19 +91,13 @@ print("\nthe yield strain is:",yield_strain)
 
 if strain >= 0.005:
     strength_reduction_factor = 0.9
-    print("\nsince the strain is greater than 0.005, the beam is tension controlled and the strength reduction face is 0.9")
-else: 
-    if strain < 0.004:
-        quit()
-    else:
-        if 0.004 <= strain <= 0.005:
-            strength_reduction_factor = 0.65 + ((strain-yield_strain)/(0.005-yield_strain))*(.25)
-            print("\nThe Beam is in a transition zone")
-   
-    
- 
-    
-            
+    print("\nSince the strain is greater than 0.005, the beam is tension controlled and the strength reduction factor is 0.9")
+elif strain <0.004:
+    print("\nSince the strain is less than 0.004, we do dont use this beam!")
+    sys.exit()
+elif 0.004<= strain <= 0.005:
+    strength_reduction_factor = 0.65 + ((strain-yield_strain)/(0.005-yield_strain))*(.25)
+    print("\n The Beam is in transtion zone")        
 
 print("\nThe strength reduction factor is:",strength_reduction_factor)
 
